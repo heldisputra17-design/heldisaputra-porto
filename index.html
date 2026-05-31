@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heldi Saputra | Digital Marketer & AI Enthusiast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fdfbf7;
+            color: #1a202c;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.active {
+            color: #d97706;
+            border-bottom: 2px solid #d97706;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Chosen Palette: Cream & Copper Harmony -->
+    <!-- Application Structure Plan: 
+        1. Hero Section: Dampak visual pertama dengan identitas kuat.
+        2. Dashboard Skill: Menggunakan Chart.js untuk memvisualisasikan proporsi keahlian (Informatif & Modern).
+        3. Experience Timeline: Struktur tab interaktif untuk menelusuri riwayat kerja tanpa membuat halaman terlalu panjang.
+        4. Project Showcase: Grid card untuk menonjolkan hasil nyata.
+        5. Contact & Footer: Akses cepat ke WhatsApp dan LinkedIn.
+        Kenapa struktur ini? Untuk memudahkan rekruter melihat 'highlight' keahlian dalam satu pandangan tanpa scrolling yang membosankan.
+    -->
+    <!-- Visualization & Content Choices: 
+        - Skill Distribution -> Donut Chart -> Chart.js -> Memberikan gambaran visual tentang fokus keahlian.
+        - Experience -> Interactive Tabs -> Vanilla JS -> Menjaga layout tetap bersih.
+        - Project Grid -> Hover effects -> Tailwind -> Meningkatkan engagement user.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-morphism shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter text-amber-700">HELDI.S</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="nav-link hover:text-amber-600 transition">Beranda</a>
+                <a href="#about" class="nav-link hover:text-amber-600 transition">Profil</a>
+                <a href="#experience" class="nav-link hover:text-amber-600 transition">Pengalaman</a>
+                <a href="#projects" class="nav-link hover:text-amber-600 transition">Proyek</a>
+                <a href="#contact" class="px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-amber-600 font-semibold tracking-widest uppercase text-xs mb-4">Digital Marketer | Content Creator</h2>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight">Membangun Masa Depan Digital dengan AI.</h1>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+                Halo, saya Heldi Saputra. Saya membantu bisnis tumbuh melalui strategi pemasaran kreatif dan pemanfaatan teknologi kecerdasan buatan.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="px-8 py-3 bg-slate-900 text-white font-medium rounded-lg hover:shadow-xl transition-all">Lihat Karya</a>
+                <a href="https://wa.me/62895636458178" target="_blank" class="px-8 py-3 border border-slate-300 font-medium rounded-lg hover:bg-white transition-all">Hubungi Saya</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About & Skills Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6">Analisis Keahlian & Profil</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Bagian ini memberikan gambaran tentang bagaimana saya mendistribusikan fokus profesional saya. Sebagai seorang **AI Enthusiast**, saya tidak hanya menggunakan alat tradisional, tetapi juga mengintegrasikan AI untuk efisiensi maksimal dalam Digital Marketing.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-amber-600 mr-4 mt-1">✦</span>
+                            <p><span class="font-bold">Digital Marketing:</span> Pengelolaan media sosial & strategi konten.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-amber-600 mr-4 mt-1">✦</span>
+                            <p><span class="font-bold">AI Prompting:</span> Generasi visual dan teks yang dioptimasi.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-amber-600 mr-4 mt-1">✦</span>
+                            <p><span class="font-bold">Copywriting:</span> Penulisan narasi merek yang persuasif.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl shadow-inner">
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-400 mt-4 italic">Visualisasi distribusi kompetensi teknis utama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Interactive Tabs) -->
+    <section id="experience" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold mb-4">Perjalanan Profesional</h3>
+                <p class="text-slate-600">Jelajahi riwayat kerja saya melalui navigasi interaktif di bawah ini.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <button onclick="openTab(event, 'dontah')" class="tab-btn active px-6 py-2 rounded-full bg-white shadow-sm border border-slate-200 hover:border-amber-500 transition-all">Dontah Project</button>
+                <button onclick="openTab(event, 'toloka')" class="tab-btn px-6 py-2 rounded-full bg-white shadow-sm border border-slate-200 hover:border-amber-500 transition-all">Toloka AI</button>
+                <button onclick="openTab(event, 'shodwe')" class="tab-btn px-6 py-2 rounded-full bg-white shadow-sm border border-slate-200 hover:border-amber-500 transition-all">Studio Shodwe</button>
+            </div>
+
+            <div id="dontah" class="tab-content active p-8 bg-white rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900">Founder & Digital Marketing Lead</h4>
+                        <p class="text-amber-600 font-medium">Dontah Project</p>
+                    </div>
+                    <span class="text-sm text-slate-500">2026 — Sekarang</span>
+                </div>
+                <ul class="space-y-3 text-slate-600 list-disc ml-5">
+                    <li>Menginisiasi proyek penyediaan layanan digital marketing mandiri.</li>
+                    <li>Merancang strategi visual identitas merek menggunakan teknologi AI terbaru.</li>
+                    <li>Merumuskan kampanye pemasaran digital untuk menjangkau audiens target secara spesifik.</li>
+                </ul>
+            </div>
+
+            <div id="toloka" class="tab-content p-8 bg-white rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900">Image Annotator</h4>
+                        <p class="text-amber-600 font-medium">Toloka AI</p>
+                    </div>
+                    <span class="text-sm text-slate-500">Professional Contract</span>
+                </div>
+                <ul class="space-y-3 text-slate-600 list-disc ml-5">
+                    <li>Melakukan pelabelan data visual untuk melatih algoritma AI.</li>
+                    <li>Menganalisis dataset sesuai dengan standar Quality Assurance yang ketat.</li>
+                    <li>Berkontribusi pada pengembangan model computer vision.</li>
+                </ul>
+            </div>
+
+            <div id="shodwe" class="tab-content p-8 bg-white rounded-3xl shadow-sm border border-slate-100">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-900">Digital Marketing Intern</h4>
+                        <p class="text-amber-600 font-medium">Studio Shodwe</p>
+                    </div>
+                    <span class="text-sm text-slate-500">2023 — 2025</span>
+                </div>
+                <ul class="space-y-3 text-slate-600 list-disc ml-5">
+                    <li>Membantu merancang kalender konten media sosial untuk berbagai klien.</li>
+                    <li>Menulis copywriting iklan yang berfokus pada engagement rate.</li>
+                    <li>Melakukan riset tren harian untuk optimasi performa konten.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-12 text-center">Etalase Proyek</h3>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Project 1 -->
+                <div class="group relative bg-slate-900 rounded-3xl overflow-hidden aspect-video flex items-center justify-center p-8 text-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
+                    <div class="relative z-10">
+                        <h4 class="text-2xl font-bold text-white mb-2">AI Visual Asset Design</h4>
+                        <p class="text-slate-300 text-sm mb-4">Pembuatan aset visual komersial menggunakan Prompt Engineering.</p>
+                        <div class="flex justify-center gap-2">
+                            <span class="px-3 py-1 bg-white/10 text-white text-xs rounded-full">Midjourney</span>
+                            <span class="px-3 py-1 bg-white/10 text-white text-xs rounded-full">Canva AI</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="group relative bg-amber-600 rounded-3xl overflow-hidden aspect-video flex items-center justify-center p-8 text-center text-white">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-40"></div>
+                    <div class="relative z-10">
+                        <h4 class="text-2xl font-bold mb-2">Content Strategy Case</h4>
+                        <p class="text-amber-50 text-sm mb-4">Peningkatan engagement sebesar 25% melalui riset audiens mendalam.</p>
+                        <div class="flex justify-center gap-2">
+                            <span class="px-3 py-1 bg-white/20 text-white text-xs rounded-full">Digital Strategy</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-xs rounded-full">Copywriting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white rounded-t-[3rem]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-4xl font-bold mb-8">Mari Terhubung</h3>
+            <p class="text-slate-400 mb-12 text-lg">Apakah Anda mencari talenta yang siap dengan tantangan digital masa depan? Saya siap berkolaborasi.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <a href="mailto:heldisputra17@gmail.com" class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="text-2xl mb-2">✉</div>
+                    <div class="text-sm font-bold">Email</div>
+                    <div class="text-xs text-slate-400">heldisputra17@gmail.com</div>
+                </a>
+                <a href="https://wa.me/62895636458178" target="_blank" class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="text-2xl mb-2">📱</div>
+                    <div class="text-sm font-bold">WhatsApp</div>
+                    <div class="text-xs text-slate-400">+62 895-6364-58178</div>
+                </a>
+                <a href="https://www.linkedin.com/in/heldi-saputra-7731b43a8/" target="_blank" class="p-6 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-all border border-slate-700">
+                    <div class="text-2xl mb-2">🔗</div>
+                    <div class="text-sm font-bold">LinkedIn</div>
+                    <div class="text-xs text-slate-400">Heldi Saputra</div>
+                </a>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2026 Heldi Saputra. Dibuat dengan presisi digital.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <span>Domisili: Kutai Kartanegara, Kaltim</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Skills Chart Implementation
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        const skillsChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Digital Marketing', 'AI Prompting', 'Copywriting', 'Data Annotation', 'Design'],
+                datasets: [{
+                    data: [35, 25, 20, 10, 10],
+                    backgroundColor: [
+                        '#d97706', // Amber-600
+                        '#1e293b', // Slate-800
+                        '#475569', // Slate-600
+                        '#94a3b8', // Slate-400
+                        '#fbbf24'  // Amber-400
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            font: { size: 11 }
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+
+        // Tab System Logic
+        function openTab(evt, tabName) {
+            const tabContent = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+
+            const tabBtns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("bg-slate-900", "text-white");
+                tabBtns[i].classList.add("bg-white", "text-slate-900");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.remove("bg-white", "text-slate-900");
+            evt.currentTarget.classList.add("bg-slate-900", "text-white");
+        }
+
+        // Navigation Active State on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
